@@ -100,7 +100,7 @@ class MainActivity : AppCompatActivity() {
             name = "LightKeeper",
             id = 1,
             image = R.drawable.baseline_10k_24,
-            trader_category = "none",
+            trader_category = "None",
             location = "Shoreline",
             loyalty = 1
         )
