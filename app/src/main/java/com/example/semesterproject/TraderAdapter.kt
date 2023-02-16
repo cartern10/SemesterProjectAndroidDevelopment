@@ -2,20 +2,18 @@ package com.example.semesterproject
 
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.commit
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.semesterproject.UI.TraderDetailFragment
 
-class TraderAdapter(private val traders: List<Trader>) : RecyclerView.Adapter<TraderAdapter.TraderViewHolder>() {
+class TraderAdapter(private val traders: List<Trader>) :
+    RecyclerView.Adapter<TraderAdapter.TraderViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TraderViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -27,7 +25,8 @@ class TraderAdapter(private val traders: List<Trader>) : RecyclerView.Adapter<Tr
                 "name" to trader.name,
                 "category" to trader.trader_category,
                 "location" to trader.location,
-                "loyalty" to trader.loyalty
+                "loyalty" to trader.loyalty,
+                "info" to trader.info
             )
 
             val detailFragment = TraderDetailFragment()
@@ -47,10 +46,10 @@ class TraderAdapter(private val traders: List<Trader>) : RecyclerView.Adapter<Tr
 
     override fun onBindViewHolder(holder: TraderViewHolder, position: Int) {
         val trader = traders[position]
-      //  holder.traderImage.setImageResource(trader.image)
-
-        Glide.with(this).load("http://goo.gl/gEgYUd").into(imageView);
-
+        Glide
+            .with(holder.itemView.context)
+            .load(trader.image)
+            .into(holder.traderImage);
 
         holder.traderName.text = trader.name
         holder.traderCategory.text = trader.trader_category
@@ -68,11 +67,10 @@ class TraderAdapter(private val traders: List<Trader>) : RecyclerView.Adapter<Tr
         val traderLocation: TextView = itemView.findViewById(R.id.trader_location)
         val traderLoyalty: TextView = itemView.findViewById(R.id.trader_loyalty)
 
-        init{
+        init {
             itemView.setOnClickListener {
                 OnItemClick(adapterPosition)
             }
         }
-
     }
 }

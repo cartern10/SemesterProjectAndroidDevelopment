@@ -7,5 +7,6 @@ data class Trader(
     val trader_category: String,
     val location: String,
     val loyalty: Int,
+    val info: String,
 
 )
