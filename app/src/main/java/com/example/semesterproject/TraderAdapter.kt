@@ -22,10 +22,11 @@ class TraderAdapter(private val traders: List<Trader>) :
             val trader = traders[position]
 
             val bundle = bundleOf(
+                "image" to trader.image,
                 "name" to trader.name,
                 "category" to trader.trader_category,
                 "location" to trader.location,
-                "loyalty" to trader.loyalty,
+                "rep" to trader.level_max_rep,
                 "info" to trader.info
             )
 
@@ -54,7 +55,6 @@ class TraderAdapter(private val traders: List<Trader>) :
         holder.traderName.text = trader.name
         holder.traderCategory.text = trader.trader_category
         holder.traderLocation.text = trader.location
-        holder.traderLoyalty.text = trader.loyalty.toString()
     }
 
     inner class TraderViewHolder(
@@ -65,7 +65,6 @@ class TraderAdapter(private val traders: List<Trader>) :
         val traderName: TextView = itemView.findViewById(R.id.trader_name)
         val traderCategory: TextView = itemView.findViewById(R.id.trader_category)
         val traderLocation: TextView = itemView.findViewById(R.id.trader_location)
-        val traderLoyalty: TextView = itemView.findViewById(R.id.trader_loyalty)
 
         init {
             itemView.setOnClickListener {

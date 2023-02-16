@@ -3,20 +3,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UI.TraderDetailFragment">
 
-    <TextView
-        android:id="@+id/trader_name"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/trader_info"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        <ImageView
+            android:id="@+id/trader_image"
+            android:layout_width="320dp"
+            android:layout_height="160dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="image" />
 
+        <TextView
+            android:id="@+id/trader_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            android:text="Trader_Name"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@id/trader_image"
+            app:layout_constraintTop_toBottomOf="@id/trader_image" />
+
+        <TextView
+            android:id="@+id/trader_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@id/trader_name"
+            app:layout_constraintTop_toBottomOf="@id/trader_name"
+            android:text="Trader_Location" />
+
+        <TextView
+            android:id="@+id/trader_info"
+            android:text="Trader_Info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@id/trader_location"
+            app:layout_constraintTop_toBottomOf="@id/trader_location" />
+
+        <TextView
+            android:id="@+id/player_level_rep"
+            android:text="Player's_Level_for_max_rep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@id/trader_info"
+            app:layout_constraintTop_toBottomOf="@id/trader_info" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </FrameLayout>

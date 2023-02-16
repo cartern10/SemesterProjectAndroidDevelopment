@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.commit {
             setReorderingAllowed(true)
             add(R.id.fragment_container_view, TraderListFragment())
+            addToBackStack(null)
         }
     }
 }
