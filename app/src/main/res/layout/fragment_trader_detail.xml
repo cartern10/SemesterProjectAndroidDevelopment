@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".UI.TraderDetailFragment">
+    tools:context=".ui.TraderDetailFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,15 +15,16 @@
             android:layout_width="320dp"
             android:layout_height="160dp"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="image" />
+            tools:contentDescription="image" />
 
         <TextView
             android:id="@+id/trader_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="32sp"
-            android:text="Trader_Name"
+            tools:text="Trader_Name"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="@id/trader_image"
             app:layout_constraintTop_toBottomOf="@id/trader_image" />
@@ -35,23 +36,23 @@
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="@id/trader_name"
             app:layout_constraintTop_toBottomOf="@id/trader_name"
-            android:text="Trader_Location" />
+            tools:text="Trader_Location" />
 
         <TextView
             android:id="@+id/trader_info"
-            android:text="Trader_Info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            tools:text="Trader_Information"
             app:layout_constraintStart_toStartOf="@id/trader_location"
             app:layout_constraintTop_toBottomOf="@id/trader_location" />
 
         <TextView
             android:id="@+id/player_level_rep"
-            android:text="Player's_Level_for_max_rep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            tools:text="player_level_rep"
             app:layout_constraintStart_toStartOf="@id/trader_info"
             app:layout_constraintTop_toBottomOf="@id/trader_info" />
 

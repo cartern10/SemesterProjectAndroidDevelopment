@@ -10,7 +10,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.commit
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.semesterproject.UI.TraderDetailFragment
+import com.example.semesterproject.ui.TraderDetailFragment
 
 class TraderAdapter(private val traders: List<Trader>) :
     RecyclerView.Adapter<TraderAdapter.TraderViewHolder>() {

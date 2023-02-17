@@ -1,8 +1,6 @@
-package com.example.semesterproject.UI
+package com.example.semesterproject.ui
 
 import android.os.Bundle
-import android.util.Log
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +30,11 @@ class TraderDetailFragment : Fragment() {
 
             Glide.with(this).load(image).into(view.findViewById(R.id.trader_image))
 
-            view.findViewById<TextView>(R.id.player_level_rep).text = "Player's Level for Max Reputation: " + rep.toString()
+
+            val playerLevelText = "@String/Player's Level for Max Reputation: "
+
+
+            view.findViewById<TextView>(R.id.player_level_rep).text = playerLevelText + rep.toString()
             view.findViewById<TextView>(R.id.trader_name).text = name
             view.findViewById<TextView>(R.id.trader_location).text = "Location: " + location
             view.findViewById<TextView>(R.id.trader_info).text = "Bio: " + info

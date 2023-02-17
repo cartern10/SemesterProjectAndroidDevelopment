@@ -1,4 +1,4 @@
-package com.example.semesterproject.UI
+package com.example.semesterproject.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -17,7 +17,7 @@ class TraderListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view =  inflater.inflate(R.layout.fragment_trader_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_trader_list, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.trader_recycler_view)
 
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
