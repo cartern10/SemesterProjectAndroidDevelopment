@@ -31,7 +31,7 @@ class TraderDetailFragment : Fragment() {
             Glide.with(this).load(image).into(view.findViewById(R.id.trader_image))
 
 
-            val playerLevelText = "@String/Player's Level for Max Reputation: "
+            val playerLevelText = "Player's Level for Max Reputation: "
 
 
             view.findViewById<TextView>(R.id.player_level_rep).text = playerLevelText + rep.toString()

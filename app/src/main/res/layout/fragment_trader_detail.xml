@@ -26,7 +26,7 @@
             android:textSize="32sp"
             tools:text="Trader_Name"
             android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@id/trader_image"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/trader_image" />
 
         <TextView
@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@id/trader_name"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/trader_name"
             tools:text="Trader_Location" />
 
@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             tools:text="Trader_Information"
-            app:layout_constraintStart_toStartOf="@id/trader_location"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/trader_location" />
 
         <TextView
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             tools:text="player_level_rep"
-            app:layout_constraintStart_toStartOf="@id/trader_info"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/trader_info" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
