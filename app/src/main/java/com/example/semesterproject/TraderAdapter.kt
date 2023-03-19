@@ -21,18 +21,7 @@ class TraderAdapter(private val traders: List<Trader>) :
         return TraderViewHolder(view){position ->
             val trader = traders[position]
 
-            val bundle = bundleOf(
-                "image" to trader.image,
-                "name" to trader.name,
-                "category" to trader.trader_category,
-                "location" to trader.location,
-                "rep" to trader.level_max_rep,
-                "info" to trader.info
-            )
-
-            val detailFragment = TraderDetailFragment()
-            detailFragment.arguments = bundle
-
+            //CHANGE HERE
             val activity = view.context as AppCompatActivity
 
             activity.supportFragmentManager.commit {

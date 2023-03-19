@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.semesterproject.R
@@ -40,5 +41,17 @@ class TraderDetailFragment : Fragment() {
             view.findViewById<TextView>(R.id.trader_info).text = "Bio: " + info
         }
         return view
+    }
+
+    //static
+    companion object{
+        private const val BUNDLE_ID = "id"
+
+        //This can be changed
+        fun newInstance(id: Int): TraderDetailFragment {
+            val detailFragment = TraderDetailFragment()
+            detailFragment.arguments = bundleOf(BUNDLE_ID to id)
+            return detailFragment
+        }
     }
 }
