@@ -1,4 +1,4 @@
-package com.example.semesterproject
+package com.example.semesterproject.model
 
 data class Trader(
     val name: String,

@@ -4,13 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
-import com.example.semesterproject.R
+import com.example.semesterproject.databinding.FragmentTraderDetailBinding
+import com.example.semesterproject.viewmodel.TraderViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TraderDetailFragment : Fragment() {
+
+    private var _binding: FragmentTraderDetailBinding? = null
+    private val binding get() = _binding!!
+
+    private val traderViewModel: TraderViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -18,29 +26,15 @@ class TraderDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_trader_detail, container, false)
+        _binding = FragmentTraderDetailBinding.inflate(inflater, container, false)
 
         if(arguments != null){
-            val name = requireArguments().getString("name")
+            val trader = traderViewModel.fetchById(requireArguments().getInt(BUNDLE_ID))
 
-            val image = requireArguments().getString("image")
-            //val category = requireArguments().getString("category")
-            val location = requireArguments().getString("location")
-            val info = requireArguments().getString("info")
-            val rep = requireArguments().getInt("rep")
-
-            Glide.with(this).load(image).into(view.findViewById(R.id.trader_image))
-
-
-            val playerLevelText = "Player's Level for Max Reputation: "
-
-
-            view.findViewById<TextView>(R.id.player_level_rep).text = playerLevelText + rep.toString()
-            view.findViewById<TextView>(R.id.trader_name).text = name
-            view.findViewById<TextView>(R.id.trader_location).text = "Location: " + location
-            view.findViewById<TextView>(R.id.trader_info).text = "Bio: " + info
+            Glide.with(requireContext()).load(trader.image).into(binding.traderImage)
+            binding.traderName.text = "Name: {trader.name}"
         }
-        return view
+        return binding.root
     }
 
     //static

@@ -1,47 +1,56 @@
-package com.example.semesterproject.ui
-
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.commit
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.semesterproject.R
-import com.example.semesterproject.Trader
-import com.example.semesterproject.TraderAdapter
+import com.example.semesterproject.databinding.FragmentTraderListBinding
+import com.example.semesterproject.ui.TraderDetailFragment
+import com.example.semesterproject.ui.adapter.TraderAdapter
 import com.example.semesterproject.viewmodel.TraderViewModel
 
+
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
 class TraderListFragment : Fragment() {
 
-    private val traderViewModel: TraderViewModel //this
+    private var _binding: FragmentTraderListBinding? = null
+    private val binding get() = _binding!!
 
-    private var traderViewHolder: TraderViewModel by activityViewModels()
-
+    private val characterViewModel: TraderViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
-        //bind
-        val trader = traderViewModel.fetchById(requireArguments().getInt(BUNDLE_ID))
+        _binding = FragmentTraderListBinding.inflate(inflater, container, false)
 
-        binding.trader
+        binding.traderRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        val trader = TraderViewModel.fillData()
-        val view = inflater.inflate(R.layout.fragment_trader_list, container, false)
-        val recyclerView = view.findViewById<RecyclerView>(R.id.trader_recycler_view)
+        val characters = characterViewModel.fillData()
 
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        val adapter = TraderAdapter(characters) { position ->
+            requireActivity().supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                replace(
+                    R.id.fragment_container_view,
+                    TraderDetailFragment.newInstance(characters[position].id),
+                )
+                addToBackStack(null)
+            }
+        }
+        binding.traderRecyclerView.adapter = adapter
 
-        val traders = mutableListOf<Trader>()
+        return binding.root
+    }
 
-        val adapter = TraderAdapter(traders)
-        recyclerView.adapter = adapter
-
-
-        return view
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }
