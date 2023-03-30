@@ -8,17 +8,18 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.bumptech.glide.Glide
-import com.example.semesterproject.databinding.FragmentTraderDetailBinding
-import com.example.semesterproject.viewmodel.TraderViewModel
+import com.example.semesterproject.R
+import com.example.semesterproject.databinding.FragmentPokemonDetailBinding
+import com.example.semesterproject.viewmodel.PokemonViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class TraderDetailFragment : Fragment() {
+class PokemonDetailFragment : Fragment() {
 
-    private var _binding: FragmentTraderDetailBinding? = null
+    private var _binding: FragmentPokemonDetailBinding? = null
     private val binding get() = _binding!!
 
-    private val traderViewModel: TraderViewModel by activityViewModels()
+    private val pokemonViewModel: PokemonViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,13 +27,13 @@ class TraderDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentTraderDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentPokemonDetailBinding.inflate(inflater, container, false)
 
         if(arguments != null){
-            val trader = traderViewModel.fetchById(requireArguments().getInt(BUNDLE_ID))
+            val pokemon = pokemonViewModel.fetchById(requireArguments().getInt(BUNDLE_ID))
 
-            Glide.with(requireContext()).load(trader.image).into(binding.traderImage)
-            binding.traderName.text = "Name: {trader.name}"
+            Glide.with(requireContext()).load(pokemon.image).into(binding.pokemonImage)
+            binding.pokemonName.text = getString(R.string.name, pokemon.name)
         }
         return binding.root
     }
@@ -42,8 +43,8 @@ class TraderDetailFragment : Fragment() {
         private const val BUNDLE_ID = "id"
 
         //This can be changed
-        fun newInstance(id: Int): TraderDetailFragment {
-            val detailFragment = TraderDetailFragment()
+        fun newInstance(id: Int): PokemonDetailFragment {
+            val detailFragment = PokemonDetailFragment()
             detailFragment.arguments = bundleOf(BUNDLE_ID to id)
             return detailFragment
         }

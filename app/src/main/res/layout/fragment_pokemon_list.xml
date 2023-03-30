@@ -3,13 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.TraderListFragment">
+    tools:context=".ui.PokemonListFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/trader_recycler_view">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        android:id="@+id/pokemon_recycler_view"/>
 
 </FrameLayout>

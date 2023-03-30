@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/trader_image"
+            android:id="@+id/pokemon_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
@@ -22,29 +22,29 @@
             tools:src="@drawable/baseline_10k_24"/>
 
         <TextView
-            android:id="@+id/trader_name"
+            android:id="@+id/pokemon_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="32sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/trader_image"
+            app:layout_constraintTop_toBottomOf="@id/pokemon_image"
             tools:text="Name"/>
         <TextView
-            android:id="@+id/trader_category"
+            android:id="@+id/pokemon_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="32sp"
-            app:layout_constraintStart_toStartOf="@id/trader_name"
-            app:layout_constraintTop_toBottomOf="@id/trader_name"
+            app:layout_constraintStart_toStartOf="@id/pokemon_name"
+            app:layout_constraintTop_toBottomOf="@id/pokemon_name"
 
             tools:text="Category"/>
         <TextView
-            android:id="@+id/trader_location"
+            android:id="@+id/pokemon_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="32sp"
-            app:layout_constraintStart_toStartOf="@id/trader_category"
-            app:layout_constraintTop_toBottomOf="@id/trader_category"
+            app:layout_constraintStart_toStartOf="@id/pokemon_category"
+            app:layout_constraintTop_toBottomOf="@id/pokemon_category"
             tools:text="Location"/>
 
 

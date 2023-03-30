@@ -1,11 +1,11 @@
 package com.example.semesterproject.model
 
-data class Trader(
+data class Pokemon(
     val name: String,
     val id: Int,
     val level_max_rep: Int,
     val image: String,
-    val trader_category: String,
+    val pokemon_category: String,
     val location: String,
     val info: String,
 
