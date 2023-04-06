@@ -4,7 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import com.example.semesterproject.databinding.ActivityMainBinding
-import com.example.semesterproject.ui.PokemonListFragment
+import com.example.semesterproject.ui.TowerListFragment
+
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
         supportFragmentManager.commit {
             setReorderingAllowed(true)
-            add(R.id.fragment_container_view, PokemonListFragment())
+            add(R.id.fragment_container_view, TowerListFragment())
         }
     }
 }

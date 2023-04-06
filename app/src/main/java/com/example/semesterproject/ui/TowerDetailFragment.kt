@@ -7,19 +7,17 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import com.bumptech.glide.Glide
-import com.example.semesterproject.R
-import com.example.semesterproject.databinding.FragmentPokemonDetailBinding
-import com.example.semesterproject.viewmodel.PokemonViewModel
+import com.example.semesterproject.databinding.FragmentTowerDetailBinding
+import com.example.semesterproject.viewmodel.TowerViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PokemonDetailFragment : Fragment() {
+class TowerDetailFragment : Fragment() {
 
-    private var _binding: FragmentPokemonDetailBinding? = null
+    private var _binding: FragmentTowerDetailBinding? = null
     private val binding get() = _binding!!
 
-    private val pokemonViewModel: PokemonViewModel by activityViewModels()
+    private val towerViewModel: TowerViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,13 +25,13 @@ class PokemonDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentPokemonDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentTowerDetailBinding.inflate(inflater, container, false)
 
         if(arguments != null){
-            val pokemon = pokemonViewModel.fetchById(requireArguments().getInt(BUNDLE_ID))
+//            val tower = towerViewModel.fetchById(requireArguments().getInt(BUNDLE_ID))
 
-            Glide.with(requireContext()).load(pokemon.image).into(binding.pokemonImage)
-            binding.pokemonName.text = getString(R.string.name, pokemon.name)
+//            Glide.with(requireContext()).load(tower.image).into(binding.towerImage)
+//            binding.towerName.text = getString(R.string.name, tower.name)
         }
         return binding.root
     }
@@ -43,8 +41,8 @@ class PokemonDetailFragment : Fragment() {
         private const val BUNDLE_ID = "id"
 
         //This can be changed
-        fun newInstance(id: Int): PokemonDetailFragment {
-            val detailFragment = PokemonDetailFragment()
+        fun newInstance(id: String): TowerDetailFragment {
+            val detailFragment = TowerDetailFragment()
             detailFragment.arguments = bundleOf(BUNDLE_ID to id)
             return detailFragment
         }

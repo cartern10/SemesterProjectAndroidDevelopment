@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/pokemon_image"
+            android:id="@+id/tower_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
@@ -22,31 +22,13 @@
             tools:src="@drawable/baseline_10k_24"/>
 
         <TextView
-            android:id="@+id/pokemon_name"
+            android:id="@+id/tower_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="32sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pokemon_image"
+            app:layout_constraintTop_toBottomOf="@id/tower_image"
             tools:text="Name"/>
-        <TextView
-            android:id="@+id/pokemon_category"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="32sp"
-            app:layout_constraintStart_toStartOf="@id/pokemon_name"
-            app:layout_constraintTop_toBottomOf="@id/pokemon_name"
-
-            tools:text="Category"/>
-        <TextView
-            android:id="@+id/pokemon_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="32sp"
-            app:layout_constraintStart_toStartOf="@id/pokemon_category"
-            app:layout_constraintTop_toBottomOf="@id/pokemon_category"
-            tools:text="Location"/>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
