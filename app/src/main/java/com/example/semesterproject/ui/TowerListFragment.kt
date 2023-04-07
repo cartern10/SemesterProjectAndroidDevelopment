@@ -44,7 +44,9 @@ class TowerListFragment : Fragment() {
     ): View? {
         _binding = FragmentTowerListBinding.inflate(inflater, container, false)
         binding.towerRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.towerRecyclerView.adapter = towerAdapter
         setupObservers()
+        towerViewModel.fillData()
         return binding.root
     }
 
