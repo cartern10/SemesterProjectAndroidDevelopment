@@ -6,6 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.semesterproject.R
+import com.example.semesterproject.data.TowerApi
+import com.example.semesterproject.data.model.TowerResponse
+import com.example.semesterproject.data.repository.TowerRepository
+import com.example.semesterproject.data.repository.TowerRepositoryImpl
 import com.example.semesterproject.databinding.TowerCardViewBinding
 import com.example.semesterproject.model.Tower
 
@@ -57,12 +61,13 @@ class TowerAdapter(
 
         fun bind(tower: Tower) {
             //Glide
-            //    .with(binding.root)
-            //    .load(tower.image)
-            //    .error(R.drawable.baseline_10k_24)
-            //    .into(binding.TowerImage)
+             // .with(binding.root)
+             //   .load(TowerRepository.getTowerImage(tower.name))
+             //   .error(R.drawable.baseline_10k_24)
+             //   .into(binding.TowerImage)
 
             binding.towerName.text = tower.name
+
 
         }
     }

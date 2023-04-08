@@ -29,6 +29,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tower_image" />
 
+        <TextView
+            android:id="@+id/tower_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="32sp"
+            tools:text="tower_Description"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tower_name" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

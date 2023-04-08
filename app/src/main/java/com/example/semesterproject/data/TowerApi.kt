@@ -10,7 +10,9 @@ interface TowerApi {
     @GET("/api/btd/v3/towers")
     suspend fun getTowers(): Response<List<Tower>>
 
-    //https://statsnite.com/images/btd/towers/{tower-id}/tower.png
+    @GET("/api/btd/v3/tower/{tower-id}")
+    suspend fun getSpecificTower(@Path(value = "tower-id") name: String): Response<List<Tower>>
+
     @GET("/images/btd/towers/{tower-id}/tower.png")
     suspend fun getTowerImage(@Path(value = "tower-id") name: String): Response<List<Tower>>
 }
